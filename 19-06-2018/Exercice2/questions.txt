@@ -1,0 +1,4 @@
+1. PHP is a ...
+2. What is PHP file extension?
+3. Can you run PHP on Linux?
+4. 

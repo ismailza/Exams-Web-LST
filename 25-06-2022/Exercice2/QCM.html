@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM</title>
+</head>
+<body>
+    <center><h2>L'utilisation des procédes RAID1 et RAID5 <br>Test d'auto-évaluation</h2></center>
+    <hr>
+    <i>Questionnaire sous forme de QCM. Les questions peuvent comporter une ou <b>plusieurs bonnes</b> réponses.</i>
+    <form name="form">
+        <h6>Question 1 :</h6>
+        <p>Quel est le type de disque système qui réalise une copie exacte de toutes les données d'une partition disque dans une autre ?</p>
+        <ul>
+            <li><input type="checkbox" name="qst1"> <i>RAID</i></li>
+            <li><input type="checkbox" name="qst1"> <i>Sauvegarde disque</i></li>
+            <li><input type="checkbox" name="qst1"> <i>Mise en miroir</i></li>
+            <li><input type="checkbox" name="qst1"> <i>Dépannage à chaud</i></li>
+        </ul>
+        <h6>Question 2 :</h6>
+        <p>Quel est le type de disque système qui utilise de 3 à 32 disques physiques et est aussi connu sous le nom de RAID5 ?</p>
+        <ul>
+            <li><input type="checkbox" name="qst2"> <i>Agrégats par bandes avec parité</i></li>
+            <li><input type="checkbox" name="qst2"> <i>Agrégats par bandes sans parité</i></li>
+            <li><input type="checkbox" name="qst2"> <i>Disque en miroir</i></li>
+            <li><input type="checkbox" name="qst2"> <i>Agrégats par bandes avec données répétitives</i></li>
+        </ul>
+        <h6>Question 3 :</h6>
+        <p>Quels sont les types de disques qui assurent la tolérance de pannes ?</p>
+        <ul>
+            <li><input type="checkbox" name="qst3"> <i>Les agrégats de partition</i></li>
+            <li><input type="checkbox" name="qst3"> <i>Les agrégats par bandes avec parité</i></li>
+            <li><input type="checkbox" name="qst3"> <i>Les agrégats par bandes sans parité</i></li>
+            <li><input type="checkbox" name="qst3"> <i>Les disque en miroir</i></li>
+            <li><input type="checkbox" name="qst3"> <i>RAID de niveau 0</i></li>
+        </ul>
+        <center>
+            <a href="correction.html"><input type="button" value="Correction"></a>
+            <input type="reset" value="Effacer">
+            <input type="button" value="Corrigé" onclick="testqcm(this.form);">
+        </center>
+    </form>
+    <script>
+        function testqcm(form){
+            qst1 = document.getElementsByName('qst1');
+            qst2 = document.getElementsByName('qst2');
+            qst3 = document.getElementsByName('qst3');
+            if(qst1[2].checked && !qst1[0].checked && !qst1[1].checked && !qst1[3].checked) {
+                res1 = "correcte";
+            }else{
+                res1 = "<u>incorrecte</u>";
+            }
+            if(qst2[0].checked && !qst2[1].checked && !qst2[2].checked && !qst2[3].checked) {
+                res2 = "correcte";
+            }else{
+                res2 = "<u>incorrecte</u>";
+            }
+            if(qst3[1].checked && qst3[3].checked && !qst3[0].checked && !qst3[2].checked && !qst3[4].checked) {
+                res3 = "correcte";
+            }else{
+                res3 = "<u>incorrecte</u>";
+            }
+            message = "<h2>Correction dynamique du test</h2>";
+            message += "<table>";
+            message += "<tr><td><li>La réponse à la question 1 est "+res1 +".</li></td></tr>";
+            message += "<tr><td><li>La réponse à la question 1 est "+res2 +".</li></td></tr>";
+            message += "<tr><td><li>La réponse à la question 1 est "+res3 +".</li></td></tr>";
+            message += "<tr><td><center><a href=\"QCM.html\"><button>OK</button></a><center></td></tr></table>";
+            document.write(message);
+        }
+    </script>
+</body>
+</html>
